@@ -1,0 +1,45 @@
+
+function Images(newTitle,path, id, description){
+  // creating a property to our object of images
+  this.title = newTitle
+  this.filePath = path
+  this.id = id
+  this.caption = description
+  this.clicked= 0
+  this.show = 0 
+}
+
+// we need a constructor that can store specific information so that we can use it later 
+// intantiating new instances of our Images object constructor 
+
+let thor = new Images('thor', )
+
+// we need to store in an array (should decclare an empty array first up)
+heroes.push (thor)
+
+// we need to display it randomly, so we need a random number function 
+let randomNumber function(){
+return Math.floor(Math.random()*heroes.length)
+elImage.setAttribute(id, heroes[randomNumber])
+}
+
+// need to display 3(make it dynamic) random images to our browser & attach with our html
+// adding an eventListner 
+for(let i=0; i<elHeroImages.length; i++){
+// attach our html with js by Id 
+// attach an empty images in our html & attach it by Id 
+let elImage =elHeroImages[i] 
+elImage.src=heroes[randomNumber()].filePath
+//+ need to set an id in our html (elImage.set..)
+elImage.setAttribute('id', randomNumber.id)
+// tracking images by adding to properties to our object of Images i.e the display show & the click & set to 0
+randomNumber.show
+elImage.addEventListner('click', clickHandler)
+
+}
+
+// wrapup the above in a function & call it so that it'll show 
+
+
+
+
