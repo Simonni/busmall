@@ -1,7 +1,8 @@
 'use strict'
 // attaching our html to js
-let elImagecon = document.getElementById('images')
+let elImagecon = document.getElementById("images")
 let elcityImage = document.getElementsByClassName('cityImage')
+//let elchartImage= document.getElementsByClassName("city-image")
 let cities =[]
 let diplayCities = []
 // creating an Image object with its property
@@ -11,7 +12,7 @@ function CityImages(newTitle, path, id, description){
   this.id= id
   this.caption = description
   this.shown =0
-  this.click=0
+  this.clicked =0
 }
 
 // creating a constructor that can store specific information & instantiating a new instances of our Image object     constructor 
@@ -36,6 +37,7 @@ let firstImage
 let secondImage
 let thirdImage 
 
+let counter= 0
 let clickHandler = function(event){
   if (firstImage.id ===event.target.id){
     firstImage.clicked++
@@ -43,8 +45,13 @@ let clickHandler = function(event){
     secondImage.clicked++
   } else {
     thirdImage.clicked++
+    counter++
   }
   displayImages()
+  while(counter===25){
+    displayChart()
+    break
+  } 
 }
 
 // need to display 3(make it dynamic) random images to our browser 
@@ -78,6 +85,6 @@ let displayImages = function(){
   }
 }
 displayImages()
-console.log(firstImage)
-console.log(secondImage)
-console.log(thirdImage)
+// console.log(firstImage)
+// console.log(secondImage)
+// console.log(thirdImage)
