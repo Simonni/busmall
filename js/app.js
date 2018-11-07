@@ -3,6 +3,7 @@
 let elImagecon = document.getElementById('images')
 let elcityImage = document.getElementsByClassName('cityImage')
 let cities =[]
+let diplayCities = []
 // creating an Image object with its property
 function CityImages(newTitle, path, id, description){
   this.title= newTitle
@@ -51,22 +52,23 @@ let clickHandler = function(event){
 let displayImages = function(){
   for(let i=0; i<elcityImage.length; i++){
     let elImage = elcityImage[i]
-    let number=randomNumber()
-    let randomCity=cities[number]
+    let randomCity=cities[randomNumber()]
     if(i===0){
       firstImage=randomCity 
     } else if(i===1){
       secondImage=randomCity
       while(firstImage===secondImage){
-        number=randomNumber()
-        secondImage=cities[number]
+        randomCity=cities[randomNumber()]
+        secondImage=randomCity
       }  
     } else if (i===2) {
       thirdImage=randomCity
       while(thirdImage===firstImage || thirdImage===secondImage){
-        number=randomNumber()
-        thirdImage=cities[number]
-      }  
+        randomCity=cities[randomNumber()]
+        thirdImage=randomCity
+      }
+      diplayCities=[]
+      diplayCities.push(firstImage,secondImage,thirdImage)
     }
     elImage.src=randomCity.filePath
     elImage.setAttribute('id', randomCity)
