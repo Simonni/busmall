@@ -25,9 +25,13 @@ let kigali = new CityImages('kigali', './images/kigali.jpg', 'kigali', 'Kigali i
 let lome = new CityImages('lome', './images/lome.jpg', 'lome', 'lome is the capital city of Mali') 
 let kinshasa = new CityImages('kinshasa', './images/kinshasa.jpg', 'kinshasa', 'kinshasa is the capital city of Congo') 
 
+if(localStorage.parseCities){
+  let localStorageCity= localStorage.getItem('parseCities')
+  cities = JSON.parse(localStorageCity)
+} else {
 // we need to store in array 
 cities.push(asmera, addisAbaba, accra,nairobi,abuja,kigali,lome,kinshasa)
-
+}
 // creating a random function 
 let randomNumber = function(){
   return Math.floor(Math.random()*cities.length)
@@ -47,6 +51,7 @@ let clickHandler = function(event){
     thirdImage.clicked++
     counter++
   }
+  localStorage.setItem('parseCities', JSON.stringify(cities))
   displayImages()
   while(counter===25){
     displayChart()
@@ -85,6 +90,3 @@ let displayImages = function(){
   }
 }
 displayImages()
-// console.log(firstImage)
-// console.log(secondImage)
-// console.log(thirdImage)
